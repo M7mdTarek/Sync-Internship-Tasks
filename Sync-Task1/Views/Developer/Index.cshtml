@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Sync_Task1.Models.Developer>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="mx-auto p-2 mb-3" style="width: 200px;">Developers</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-success">New Developer</a>
+</p>
+<table class="table table-bordered table-striped table-hover">
+    <thead>
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+                Image
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            
+            <th>
+                Role
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.id)
+            </td>
+            <td>
+                <img class="img-thumbnail" style="width:70px;height:60px" src="/uploads/@item.imgUrl" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.role)
+            </td>           
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.id" class="btn btn-warning text-white">Edit</a> 
+                <a asp-action="Details" asp-route-id="@item.id" class="btn btn-info text-white">Info</a> 
+                <a asp-action="Delete" asp-route-id="@item.id" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
