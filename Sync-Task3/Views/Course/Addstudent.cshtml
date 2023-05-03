@@ -1,0 +1,43 @@
+﻿@model Sync_Task3.ViewsModels.CourseStudentViewModel
+
+@{
+    ViewData["Title"] = "Addstudent";
+}
+
+<h1 class="text-white">Add student to a course</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        @if (ViewBag.message != null)
+        {
+            <h5 class="alert alert-danger">@ViewBag.message</h5>
+        }
+        @if (ViewBag.warning != null)
+        {
+            <h5 class="alert alert-danger">@ViewBag.warning</h5>
+        }
+        <form asp-action="Addstudent">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="CoursesId" class="control-label text-white"> Course</label>
+                <select asp-for="CoursesId" class="form-control"
+                        asp-items="@(new SelectList(Model.AllCourses , "Id" ,"Name"))"></select>
+                <span asp-validation-for="CoursesId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StudentId" class="control-label text-white"> Student</label>
+                <select asp-for="StudentId" class="form-control"
+                        asp-items="@(new SelectList(Model.AllStudents , "Id" ,"Name"))"></select>
+                <span asp-validation-for="StudentId" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-4">
+                <input type="submit" value="Create" class="btn btn-success" />
+                <a class="btn btn-danger" @Html.ActionLink("Back" , "Control","Teacher")</a>
+            </div>
+            
+        </form>
+    </div>
+</div>
+
+

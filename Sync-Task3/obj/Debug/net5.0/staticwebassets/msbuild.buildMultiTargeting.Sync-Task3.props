@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Sync-Task3.props" />
+</Project>

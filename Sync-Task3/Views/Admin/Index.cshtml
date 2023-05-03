@@ -1,0 +1,12 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="text-center">
+    <h1 class="text-white mb-5">Welcome Admin</h1>
+    <div class="btn-group btn-group-lg" role="group" aria-label="Large button group">
+        <a type="button" class="btn btn-outline-dark text-white"@Html.ActionLink("Create student","Create","Student")</a>
+        <a type="button" class="btn btn-outline-dark text-white" @Html.ActionLink("Create Course","Create","Course")</a>
+        <a type="button" class="btn btn-outline-dark text-white" @Html.ActionLink("Create Teacher","Create","Teacher")</a>
+    </div>
+</div>

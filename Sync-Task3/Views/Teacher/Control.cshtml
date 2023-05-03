@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Sync_Task3.Models.Course>
+@{
+    ViewData["Title"] = "Control";
+}
+
+<div class="text-center">
+    <h1 class="text-white mb-5"> Welcome Teacher </h1>
+    <table class="table table-bordered table-striped table-hover">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Teacher)
+                </th>
+                <th>
+                    Num of students
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Teacher.Name)
+                    </td>
+                    @if (item.Size == 0 )
+                    {
+
+                        <td>None of students has enrolled</td>
+                    }
+                    else
+                    {
+                        <td>@Html.DisplayFor(modelItem => item.Size) students</td>
+                    }
+                    <td>
+                        <a asp-action="TakeAttend" asp-route-id="@item.Id" class="btn btn-danger">Take attendance</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div class="btn-group btn-group-lg mt-5" role="group" aria-label="Large button group">
+        <a type="button" class="btn btn-success me-5" @Html.ActionLink("Show students","Index","Student")</a>
+        <a type="button" class="btn btn-primary ms-5" @Html.ActionLink("Add student to my course","Addstudent","Course")</a>
+    </div>
+</div>
+

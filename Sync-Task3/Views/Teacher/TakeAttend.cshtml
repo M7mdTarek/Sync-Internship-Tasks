@@ -1,0 +1,97 @@
+﻿@model Sync_Task3.Models.Course
+
+@{
+    ViewData["Title"] = "TakeAttend";
+}
+
+<h1 class="mx-auto p-2 mb-3" style="width: 350px;">Take Attendance</h1>
+
+<form asp-action="TakeAttend" method="post">
+    <table class="table table-bordered table-striped table-hover">
+        <thead>
+            <tr>
+                <th>
+                    ID
+                </th>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Department
+                </th>
+                <th>
+                    NumofAbsence
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @*@foreach (var item in Model.Students)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Department)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NumofAbsence)
+                    </td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            @Html.RadioButtonFor(modelItem=>item.Attendance,1,new{@class="form-check-input",
+                                id = "Option1_" + Html.IdFor(m => item.Id) , name=Html.IdFor(m => item.Id)})
+                            <label class="form-check-label" for="Option1_@Html.IdFor(m => item.Id)">Attend</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            @Html.RadioButtonFor(modelItem=>item.Attendance,0,new{@class="form-check-input",
+                                id = "Option2_" + Html.IdFor(m => item.Id),name=Html.IdFor(m => item.Id)})
+                            <label class="form-check-label" for="Option2_@Html.IdFor(m => item.Id)">Absent</label>
+                        </div>
+                    </td>
+                </tr>
+            }*@
+            @for (int i = 0; i < Model.Students.Count(); i++)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => Model.Students[i].Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => Model.Students[i].Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => Model.Students[i].Department)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => Model.Students[i].NumofAbsence)
+                    </td>
+                    <td>
+                        @Html.HiddenFor(m => Model.Students[i].Id)
+                        @Html.HiddenFor(m => Model.Students[i].Name)
+                        @Html.HiddenFor(m => Model.Students[i].Department)
+                        @Html.HiddenFor(m => Model.Students[i].NumofAbsence)
+                        <div class="form-check form-check-inline">
+                            @Html.RadioButtonFor(modelItem=>Model.Students[i].Attendance,1,new{@class="form-check-input",
+                        id = "Option1_" + Html.IdFor(m => Model.Students[i].Id) , name=Model.Students[i].Id})
+                            <label class="form-check-label" for="Option1_@Html.IdFor(m => Model.Students[i].Id)">Attend</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            @Html.RadioButtonFor(modelItem=>Model.Students[i].Attendance,0,new{@class="form-check-input",
+                                id = "Option2_" + Html.IdFor(m => Model.Students[i].Id),name=Model.Students[i].Id})
+                            <label class="form-check-label" for="Option2_@Html.IdFor(m => Model.Students[i].Id)">Absent</label>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div class="text-center mt-5">
+        <input type="submit" value="Submit" class="btn btn-success" />
+    </div>
+</form>
+

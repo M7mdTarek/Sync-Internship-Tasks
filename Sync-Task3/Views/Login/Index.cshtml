@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="text-center">
+    <h1> Welcome to Attendance Monitoring System </h1>
+    <h3 class="text-white-50 mt-3"> Identify your self </h3>
+    <div class="btn-group btn-group-lg mt-5" role="group" aria-label="Large button group">
+        <a type="button" class="btn btn-danger me-5" @Html.ActionLink("As Admin","Index","Admin")</a>
+        <a type="button" class="btn btn-primary ms-5" @Html.ActionLink("As Teacher","Control","Teacher")</a>
+    </div>
+</div>
+
+
