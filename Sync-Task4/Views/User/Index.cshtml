@@ -1,0 +1,11 @@
+﻿@model Sync_Task4.Models.User
+
+
+<div class="text-center">
+    <h1>Welcome @Model.Name </h1>
+    <h4>choose what do you need</h4>
+    <div class="btn-group btn-group-lg mt-5" role="group" aria-label="Large button group">
+        <a type="button" class="btn btn-success me-5" @Html.ActionLink("Book a ticket","Index","Train")</a>
+        <a type="button" class="btn btn-primary ms-5" @Html.ActionLink("View my tickets","ViewTickets",Model)</a>
+    </div>
+</div>

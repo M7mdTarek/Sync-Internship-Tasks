@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Sync_Task4</title>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/css/stylesheet.css" rel="stylesheet" />
+</head>
+<body class="text-bg-secondary">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark text-white mb-5">
+        <div class="container-fluid">
+            <a class="navbar-brand" @Html.ActionLink("Local Train Ticketing System" , "Login","user")</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse  ms-3" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" @Html.ActionLink("User Home" , "Index","User")</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" @Html.ActionLink("Users" , "List","User")</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" @Html.ActionLink("Trains" , "List","Train")</a>
+                    </li>
+                    
+                </ul>
+                <div class="d-flex" role="search">
+                    <a class="navbar-brand btn btn-outline-danger" @Html.ActionLink("Logout" , "Login","user")</a>
+                    
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="~/js/javascript.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
